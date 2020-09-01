@@ -10,6 +10,16 @@
 		1865DA0224FE163000F445F6 /* RxForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1865D9F824FE163000F445F6 /* RxForm.framework */; };
 		1865DA0724FE163000F445F6 /* RxFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA0624FE163000F445F6 /* RxFormTests.swift */; };
 		1865DA0924FE163000F445F6 /* RxForm.h in Headers */ = {isa = PBXBuildFile; fileRef = 1865D9FB24FE163000F445F6 /* RxForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1865DA1724FE16F600F445F6 /* FormControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA1624FE16F600F445F6 /* FormControl.swift */; };
+		1865DA1924FE170D00F445F6 /* FormGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA1824FE170D00F445F6 /* FormGroup.swift */; };
+		1865DA1B24FE171600F445F6 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA1A24FE171600F445F6 /* Validator.swift */; };
+		1865DA2124FE171C00F445F6 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA1C24FE171C00F445F6 /* EmailValidator.swift */; };
+		1865DA2224FE171C00F445F6 /* RequiredValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA1D24FE171C00F445F6 /* RequiredValidator.swift */; };
+		1865DA2324FE171C00F445F6 /* MobileNoValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA1E24FE171C00F445F6 /* MobileNoValidator.swift */; };
+		1865DA2424FE171C00F445F6 /* MinLenValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA1F24FE171C00F445F6 /* MinLenValidator.swift */; };
+		1865DA2524FE171C00F445F6 /* MaxLenValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA2024FE171C00F445F6 /* MaxLenValidator.swift */; };
+		96DA0A075144DC2B568BE2DD /* Pods_RxForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45886C3658BC4AC5E861C3E3 /* Pods_RxForm.framework */; };
+		E019A87550D35F34B2138C50 /* Pods_RxForm_RxFormTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0740D03C749424F0DDB760A1 /* Pods_RxForm_RxFormTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +33,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0740D03C749424F0DDB760A1 /* Pods_RxForm_RxFormTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxForm_RxFormTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14C2731F72396D9680966A80 /* Pods-RxForm-RxFormTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxForm-RxFormTests.release.xcconfig"; path = "Target Support Files/Pods-RxForm-RxFormTests/Pods-RxForm-RxFormTests.release.xcconfig"; sourceTree = "<group>"; };
 		1865D9F824FE163000F445F6 /* RxForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1865D9FB24FE163000F445F6 /* RxForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxForm.h; sourceTree = "<group>"; };
 		1865D9FC24FE163000F445F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1865DA0124FE163000F445F6 /* RxFormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1865DA0624FE163000F445F6 /* RxFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxFormTests.swift; sourceTree = "<group>"; };
 		1865DA0824FE163000F445F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1865DA1624FE16F600F445F6 /* FormControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormControl.swift; sourceTree = "<group>"; };
+		1865DA1824FE170D00F445F6 /* FormGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormGroup.swift; sourceTree = "<group>"; };
+		1865DA1A24FE171600F445F6 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		1865DA1C24FE171C00F445F6 /* EmailValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		1865DA1D24FE171C00F445F6 /* RequiredValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequiredValidator.swift; sourceTree = "<group>"; };
+		1865DA1E24FE171C00F445F6 /* MobileNoValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileNoValidator.swift; sourceTree = "<group>"; };
+		1865DA1F24FE171C00F445F6 /* MinLenValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinLenValidator.swift; sourceTree = "<group>"; };
+		1865DA2024FE171C00F445F6 /* MaxLenValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxLenValidator.swift; sourceTree = "<group>"; };
+		45886C3658BC4AC5E861C3E3 /* Pods_RxForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8316BC743DD85CA579AF03F5 /* Pods-RxForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxForm.debug.xcconfig"; path = "Target Support Files/Pods-RxForm/Pods-RxForm.debug.xcconfig"; sourceTree = "<group>"; };
+		988A37CA75B98F2FBF31C5A2 /* Pods-RxForm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxForm.release.xcconfig"; path = "Target Support Files/Pods-RxForm/Pods-RxForm.release.xcconfig"; sourceTree = "<group>"; };
+		C83ACD9288631D30121AC175 /* Pods-RxForm-RxFormTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxForm-RxFormTests.debug.xcconfig"; path = "Target Support Files/Pods-RxForm-RxFormTests/Pods-RxForm-RxFormTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DA0A075144DC2B568BE2DD /* Pods_RxForm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1865DA0224FE163000F445F6 /* RxForm.framework in Frameworks */,
+				E019A87550D35F34B2138C50 /* Pods_RxForm_RxFormTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +82,8 @@
 				1865D9FA24FE163000F445F6 /* RxForm */,
 				1865DA0524FE163000F445F6 /* RxFormTests */,
 				1865D9F924FE163000F445F6 /* Products */,
+				9416E161DA9B2C4658CA82D5 /* Pods */,
+				8F6ECCB90649A680D7A0A217 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +99,9 @@
 		1865D9FA24FE163000F445F6 /* RxForm */ = {
 			isa = PBXGroup;
 			children = (
+				1865DA1524FE16D700F445F6 /* Validator */,
+				1865DA1324FE16C100F445F6 /* Form Group */,
+				1865DA1224FE16B000F445F6 /* Form Control */,
 				1865D9FB24FE163000F445F6 /* RxForm.h */,
 				1865D9FC24FE163000F445F6 /* Info.plist */,
 			);
@@ -84,6 +115,64 @@
 				1865DA0824FE163000F445F6 /* Info.plist */,
 			);
 			path = RxFormTests;
+			sourceTree = "<group>";
+		};
+		1865DA1224FE16B000F445F6 /* Form Control */ = {
+			isa = PBXGroup;
+			children = (
+				1865DA1624FE16F600F445F6 /* FormControl.swift */,
+			);
+			path = "Form Control";
+			sourceTree = "<group>";
+		};
+		1865DA1324FE16C100F445F6 /* Form Group */ = {
+			isa = PBXGroup;
+			children = (
+				1865DA1824FE170D00F445F6 /* FormGroup.swift */,
+			);
+			path = "Form Group";
+			sourceTree = "<group>";
+		};
+		1865DA1424FE16CE00F445F6 /* Default Validators */ = {
+			isa = PBXGroup;
+			children = (
+				1865DA1C24FE171C00F445F6 /* EmailValidator.swift */,
+				1865DA2024FE171C00F445F6 /* MaxLenValidator.swift */,
+				1865DA1F24FE171C00F445F6 /* MinLenValidator.swift */,
+				1865DA1E24FE171C00F445F6 /* MobileNoValidator.swift */,
+				1865DA1D24FE171C00F445F6 /* RequiredValidator.swift */,
+			);
+			path = "Default Validators";
+			sourceTree = "<group>";
+		};
+		1865DA1524FE16D700F445F6 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				1865DA1A24FE171600F445F6 /* Validator.swift */,
+				1865DA1424FE16CE00F445F6 /* Default Validators */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
+		8F6ECCB90649A680D7A0A217 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45886C3658BC4AC5E861C3E3 /* Pods_RxForm.framework */,
+				0740D03C749424F0DDB760A1 /* Pods_RxForm_RxFormTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9416E161DA9B2C4658CA82D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8316BC743DD85CA579AF03F5 /* Pods-RxForm.debug.xcconfig */,
+				988A37CA75B98F2FBF31C5A2 /* Pods-RxForm.release.xcconfig */,
+				C83ACD9288631D30121AC175 /* Pods-RxForm-RxFormTests.debug.xcconfig */,
+				14C2731F72396D9680966A80 /* Pods-RxForm-RxFormTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +193,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1865DA0C24FE163000F445F6 /* Build configuration list for PBXNativeTarget "RxForm" */;
 			buildPhases = (
+				C806E4C84DC889DB06C7FDAD /* [CP] Check Pods Manifest.lock */,
 				1865D9F324FE163000F445F6 /* Headers */,
 				1865D9F424FE163000F445F6 /* Sources */,
 				1865D9F524FE163000F445F6 /* Frameworks */,
@@ -122,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1865DA0F24FE163000F445F6 /* Build configuration list for PBXNativeTarget "RxFormTests" */;
 			buildPhases = (
+				E60F390173D380CCA5A84FEC /* [CP] Check Pods Manifest.lock */,
 				1865D9FD24FE163000F445F6 /* Sources */,
 				1865D9FE24FE163000F445F6 /* Frameworks */,
 				1865D9FF24FE163000F445F6 /* Resources */,
+				EC73CAE50498AA3EEB18536C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +240,7 @@
 				TargetAttributes = {
 					1865D9F724FE163000F445F6 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 					1865DA0024FE163000F445F6 = {
 						CreatedOnToolsVersion = 11.4;
@@ -190,11 +283,83 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C806E4C84DC889DB06C7FDAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxForm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E60F390173D380CCA5A84FEC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxForm-RxFormTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC73CAE50498AA3EEB18536C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxForm-RxFormTests/Pods-RxForm-RxFormTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxForm-RxFormTests/Pods-RxForm-RxFormTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxForm-RxFormTests/Pods-RxForm-RxFormTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1865D9F424FE163000F445F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1865DA2224FE171C00F445F6 /* RequiredValidator.swift in Sources */,
+				1865DA1724FE16F600F445F6 /* FormControl.swift in Sources */,
+				1865DA2424FE171C00F445F6 /* MinLenValidator.swift in Sources */,
+				1865DA2524FE171C00F445F6 /* MaxLenValidator.swift in Sources */,
+				1865DA2124FE171C00F445F6 /* EmailValidator.swift in Sources */,
+				1865DA2324FE171C00F445F6 /* MobileNoValidator.swift in Sources */,
+				1865DA1B24FE171600F445F6 /* Validator.swift in Sources */,
+				1865DA1924FE170D00F445F6 /* FormGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +504,9 @@
 		};
 		1865DA0D24FE163000F445F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8316BC743DD85CA579AF03F5 /* Pods-RxForm.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VUJ486KNEX;
@@ -356,6 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Rx.RxForm;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,7 +531,9 @@
 		};
 		1865DA0E24FE163000F445F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 988A37CA75B98F2FBF31C5A2 /* Pods-RxForm.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VUJ486KNEX;
@@ -387,7 +557,9 @@
 		};
 		1865DA1024FE163000F445F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C83ACD9288631D30121AC175 /* Pods-RxForm-RxFormTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VUJ486KNEX;
 				INFOPLIST_FILE = RxFormTests/Info.plist;
@@ -405,7 +577,9 @@
 		};
 		1865DA1124FE163000F445F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14C2731F72396D9680966A80 /* Pods-RxForm-RxFormTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VUJ486KNEX;
 				INFOPLIST_FILE = RxFormTests/Info.plist;
