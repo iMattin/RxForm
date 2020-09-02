@@ -16,12 +16,12 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RxForm"
-  spec.version      = "0.1.0"
+  spec.version      = "0.2.0"
   spec.summary      = "A reactive form control written in swift"
 
   
   spec.description      = <<-DESC
-     Reactive form control :)
+     A reactive form control library written in swift using RxSwift for complex and dynamic forms
                         DESC
 
   # This description is used to generate tags and improve search results.
