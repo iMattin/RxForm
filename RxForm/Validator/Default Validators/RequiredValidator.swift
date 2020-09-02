@@ -8,13 +8,14 @@
 
 import Foundation
 
-struct RequiredValidator: Validator {
-    
-    static var name: String { "required" }
+public struct RequiredValidator {
 
+    public static var name: String { "required" }
+
+    public init() {}
     
-    func isValid(value: Any) -> Bool {
-        guard let value = value as? String else { return true }
-        return !value.isEmpty
+    public func isValid(value: String?) -> Bool {
+        true
     }
 }
+

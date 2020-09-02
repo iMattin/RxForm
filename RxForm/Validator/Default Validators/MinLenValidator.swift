@@ -8,19 +8,20 @@
 
 import Foundation
 
-struct MinLengthValidator: Validator {
+public struct MinLengthValidator {
     
-    static var name: String { "minLen" }
+    public static var name: String { "minLen" }
 
     
     let minLen: Int
     
-    init(_ len: Int) {
+    public init(_ len: Int) {
         self.minLen = len
     }
     
-    func isValid(value: Any) -> Bool {
-        guard let value = value as? String else { return true }
-        return value.count >= self.minLen
+    public func isValid(value: String?) -> Bool {
+//        guard value != nil else { return false }
+//        return value!.count >= self.minLen
+        true
     }
 }

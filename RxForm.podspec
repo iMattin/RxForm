@@ -18,6 +18,7 @@ Pod::Spec.new do |spec|
   spec.name         = "RxForm"
   spec.version      = "0.1.0"
   spec.summary      = "A reactive form control written in swift"
+
   
   spec.description      = <<-DESC
      Reactive form control :)
@@ -70,6 +71,8 @@ Pod::Spec.new do |spec|
 
   #  When using multiple platforms
   spec.ios.deployment_target = "10.0"
+  spec.requires_arc = true
+
   # spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
@@ -92,7 +95,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "RxForm"
+  spec.source_files  = "RxForm/**/*.{swift}"
   #spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -124,7 +127,6 @@ Pod::Spec.new do |spec|
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
 
-  spec.frameworks = 'Foundation'
   spec.dependency 'RxSwift', '~> 5.1'
   spec.dependency 'RxCocoa', '~> 5.1'
 

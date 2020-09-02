@@ -7,14 +7,18 @@
 //
 
 import Foundation
+import RxSwift
 
-struct EmailValidator: Validator {
+public struct EmailValidator {
     
-    static var name: String { "email" }
+    public static var name: String { "email" }
     
-    func isValid(value: Any) -> Bool {
-        guard let value = value as? String else { return true }
+    public init() {}
+    
+    public func isValid(value: String?) -> Bool {
         let emailPattern = "[A-Z0-9a-z._%+-]+@([A-Za-z0-9.-]{2,64})+\\.[A-Za-z]{2,64}"
         return NSPredicate(format:"SELF MATCHES %@", emailPattern).evaluate(with: value)
     }
+
 }
+

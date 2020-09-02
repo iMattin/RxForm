@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct MobileNumberValidator: Validator {
+public struct MobileNumberValidator {
     
-    static var name: String { "mobileNumber" }
+    public static var name: String { "mobileNumber" }
     
-    func isValid(value: Any) -> Bool {
-        guard let value = value as? String else { return true }
+    public init() {}
+    
+    public func isValid(value: String?) -> Bool {
         return NSPredicate(format:"SELF MATCHES %@", "^(\\+98|0098|98|0)?9\\d{9}$").evaluate(with: value)
     }
-    
 }

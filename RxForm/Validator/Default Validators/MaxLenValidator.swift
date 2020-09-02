@@ -8,18 +8,20 @@
 
 import Foundation
 
-struct MaxLengthValidator: Validator {
+public struct MaxLengthValidator {
     
-    static var name: String { "maxLen" }
+    public static var name: String { "maxLen" }
 
     let maxLen: Int
-
-    init(_ len: Int) {
+    
+    public init(_ len: Int) {
         self.maxLen = len
     }
     
-    func isValid(value: Any) -> Bool {
-        guard let value = value as? String else { return true }
-        return value.count <= self.maxLen
+    public func isValid(value: String?) -> Bool {
+//        return value!.count <= self.maxLen
+        
+        return true
     }
+    
 }

@@ -13,13 +13,15 @@ import RxCocoa
 
 public protocol FormControlProtocol {
     func reset()
-    var isValid: Observable<Bool> { get }
+    var validityChanges: Observable<Bool> { get }
+    func updateValueAndValidity()
 }
 
 
 public class FormControl<T>: FormControlProtocol {
 
-    public var currentValue: T {
+
+    public var value: T {
         get {
             try! self._subject.value()
         }
@@ -32,85 +34,54 @@ public class FormControl<T>: FormControlProtocol {
         self._subject.asObservable()
     }
 
-    public lazy var isValid: Observable<Bool> = {
-        self._subject.flatMap { [unowned self] value -> Observable<Bool> in
-            var isAllValid = true
-            self._validators.forEach { validator in
-                let isValid = validator.isValid(value: value)
-                self._errors[type(of: validator).name]!.accept(!isValid)
-                if !isValid { isAllValid = false }
-            }
-            return Observable<Bool>.just(isAllValid)
-        }.share(replay: 1, scope: .whileConnected)
+    public lazy var validityChanges: Observable<Bool> = {
+        self._subject
+            .flatMap { [unowned self] value -> Observable<Bool> in
+                Observable<Bool>.just(self.applyValidators())
+            }.share(replay: 1, scope: .whileConnected)
     }()
     
     
-    private let _subject: BehaviorSubject<T>
-    private let _initialValue: T
-    private let _defaultValue: T
-    private let _validators: [Validator]
-    private let _errors: [String : BehaviorRelay<Bool>]
+    internal let _subject: BehaviorSubject<T>
+    internal let _initialValue: T
+
+    private let _validators: [SyncValidator<T>]
+    private let _errors: ReplaySubject<Validation>
     private let _bag = DisposeBag()
     
     
 
-    public init(initialValue: T, defaultValue: T, validators: [Validator] = []) {
+    public init(initialValue: T, validators: [SyncValidator<T>] = []) {
         self._initialValue = initialValue
-        self._defaultValue = defaultValue
         self._validators = validators
-        self._subject = BehaviorSubject(value: self._initialValue)
-        self._errors = validators.reduce([String : BehaviorRelay<Bool>](), { (dict, validator) -> [String : BehaviorRelay<Bool>] in
-            var dict = dict
-            dict[type(of: validator).name] = BehaviorRelay<Bool>(value: false)
-            return dict
-        })
-        self.observeChanges()
+        self._subject = BehaviorSubject(value: initialValue)
+        self._errors = .createUnbounded()
+        self.observeValidityChanges()
     }
     
     public func hasError(_ name: String) -> Observable<Bool> {
-        self._errors[name]!.asObservable()
+        self._errors.filter { $0.name == name }.map { $0.isValid }
     }
 
     public func reset() {
-        self._subject.onNext(self._defaultValue)
+        self._subject.onNext(self._initialValue)
+    }
+    
+    public func updateValueAndValidity() {
+        self._subject.onNext(self.value)
     }
 
-
-    private func observeChanges() {
-        self.isValid.subscribe().disposed(by: self._bag)
+    private func observeValidityChanges() {
+        self.validityChanges.subscribe().disposed(by: self._bag)
     }
-}
-
-
-
-extension FormControl: ObserverType {
-
-    public func on(_ event: Event<T>) {
-        switch event {
-        case .completed:
-            self._subject.onCompleted()
-        case let .error(error):
-            self._subject.onError(error)
-        case let .next(value):
-            self._subject.onNext(value)
+    
+    private func applyValidators() -> Bool {
+        var isAllValid = true
+        self._validators.forEach { validator in
+            let validation = validator(value)
+            self._errors.onNext(validation)
+            if !validation.isValid { isAllValid = false }
         }
-    }
-
-}
-
-
-extension FormControl: ObservableConvertibleType {
-    public func asObservable() -> Observable<T> {
-        self._subject.asObservable()
+        return isAllValid
     }
 }
-
-
-
-extension FormControl: SharedSequenceConvertibleType {
-    public func asSharedSequence() -> SharedSequence<DriverSharingStrategy, T> {
-        self.asDriver(onErrorJustReturn: _defaultValue)
-    }
-}
-
-

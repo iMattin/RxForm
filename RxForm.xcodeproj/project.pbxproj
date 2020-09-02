@@ -18,6 +18,8 @@
 		1865DA2324FE171C00F445F6 /* MobileNoValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA1E24FE171C00F445F6 /* MobileNoValidator.swift */; };
 		1865DA2424FE171C00F445F6 /* MinLenValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA1F24FE171C00F445F6 /* MinLenValidator.swift */; };
 		1865DA2524FE171C00F445F6 /* MaxLenValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA2024FE171C00F445F6 /* MaxLenValidator.swift */; };
+		1865DA2D24FF6EA200F445F6 /* FormControl+ObserverType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA2C24FF6EA200F445F6 /* FormControl+ObserverType.swift */; };
+		1865DA2F24FF6EDE00F445F6 /* FormControl+ObservableConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DA2E24FF6EDE00F445F6 /* FormControl+ObservableConvertibleType.swift */; };
 		96DA0A075144DC2B568BE2DD /* Pods_RxForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45886C3658BC4AC5E861C3E3 /* Pods_RxForm.framework */; };
 		E019A87550D35F34B2138C50 /* Pods_RxForm_RxFormTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0740D03C749424F0DDB760A1 /* Pods_RxForm_RxFormTests.framework */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,8 @@
 		1865DA1E24FE171C00F445F6 /* MobileNoValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileNoValidator.swift; sourceTree = "<group>"; };
 		1865DA1F24FE171C00F445F6 /* MinLenValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinLenValidator.swift; sourceTree = "<group>"; };
 		1865DA2024FE171C00F445F6 /* MaxLenValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxLenValidator.swift; sourceTree = "<group>"; };
+		1865DA2C24FF6EA200F445F6 /* FormControl+ObserverType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormControl+ObserverType.swift"; sourceTree = "<group>"; };
+		1865DA2E24FF6EDE00F445F6 /* FormControl+ObservableConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormControl+ObservableConvertibleType.swift"; sourceTree = "<group>"; };
 		45886C3658BC4AC5E861C3E3 /* Pods_RxForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8316BC743DD85CA579AF03F5 /* Pods-RxForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxForm.debug.xcconfig"; path = "Target Support Files/Pods-RxForm/Pods-RxForm.debug.xcconfig"; sourceTree = "<group>"; };
 		988A37CA75B98F2FBF31C5A2 /* Pods-RxForm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxForm.release.xcconfig"; path = "Target Support Files/Pods-RxForm/Pods-RxForm.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				1865DA1624FE16F600F445F6 /* FormControl.swift */,
+				1865DA2C24FF6EA200F445F6 /* FormControl+ObserverType.swift */,
+				1865DA2E24FF6EDE00F445F6 /* FormControl+ObservableConvertibleType.swift */,
 			);
 			path = "Form Control";
 			sourceTree = "<group>";
@@ -357,8 +363,10 @@
 				1865DA2524FE171C00F445F6 /* MaxLenValidator.swift in Sources */,
 				1865DA2124FE171C00F445F6 /* EmailValidator.swift in Sources */,
 				1865DA2324FE171C00F445F6 /* MobileNoValidator.swift in Sources */,
+				1865DA2F24FF6EDE00F445F6 /* FormControl+ObservableConvertibleType.swift in Sources */,
 				1865DA1B24FE171600F445F6 /* Validator.swift in Sources */,
 				1865DA1924FE170D00F445F6 /* FormGroup.swift in Sources */,
+				1865DA2D24FF6EA200F445F6 /* FormControl+ObserverType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +514,8 @@
 			baseConfigurationReference = 8316BC743DD85CA579AF03F5 /* Pods-RxForm.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -519,9 +529,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.10;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.RxForm;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -534,6 +546,8 @@
 			baseConfigurationReference = 988A37CA75B98F2FBF31C5A2 /* Pods-RxForm.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -547,9 +561,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.10;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.RxForm;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
