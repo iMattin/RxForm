@@ -3,7 +3,6 @@
 //  RxForm
 //
 //  Created by Matin Abdollahi on 9/1/20.
-//  Copyright © 2020 IEM. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
