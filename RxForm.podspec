@@ -127,8 +127,8 @@ Pod::Spec.new do |spec|
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
 
-  spec.dependency 'RxSwift', '~> 5.1'
-  spec.dependency 'RxCocoa', '~> 5.1'
+  spec.dependency 'RxSwift', '~> 6.2'
+  spec.dependency 'RxCocoa', '~> 6.2'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
