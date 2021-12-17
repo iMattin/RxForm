@@ -115,18 +115,30 @@ class RxFormTests: XCTestCase {
         XCTAssertTrue(outerFormGroup.pending)
     }
     
-//    func testStatus() {
-//        let expectation = self.expectation(description: "async validators")
-//        let asyncValidator = self.createAsyncValidator(seconds: 2)
-//        let formControl = FormControl("s", validators: [Validators.required], asyncValidators: [asyncValidator, asyncValidator])
-//        _ = formControl.statusChanges.drive (onNext: { (status) in
-//            if status == .valid {
-//                expectation.fulfill()
-//            }
-//        })
-//        self.waitForExpectations(timeout: 7, handler: nil)
-//        XCTAssertFalse(formControl.status == .valid)
-//    }
+    func testDeallocation() {
+        var innerFormGroup: FormGroup? = FormGroup(controls: [
+            "username": FormControl("matin3238@gmail.com", validators: [Validators.email]),
+            "password": FormControl("1234", validators: [Validators.required, Validators.minLength(4)]),
+            "toggle": FormControl(true, asyncValidators: [createAsyncValidator(seconds: 3)])
+        ])
+        var outerFormGroup: FormGroup? = FormGroup(controls: [
+            "inner": innerFormGroup!,
+            "toggle": FormControl(true)
+        ])
+        weak var weakControl: AbstractControl? = innerFormGroup?.get("username")
+        
+        outerFormGroup?.setValue([
+            "inner": [
+                "username": "Matin",
+                "password": "1234",
+            ]
+        ])
+        
+        outerFormGroup = nil
+        innerFormGroup = nil
+
+        XCTAssertNil(weakControl)
+    }
     
     private func createAsyncValidator(seconds: Int) -> AsyncValidator {
         return { (control: AbstractControl) in
