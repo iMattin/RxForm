@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RxForm"
-  spec.version      = "0.2.0"
+  spec.version      = "1.0.0"
   spec.summary      = "A reactive form control written in swift"
 
   
