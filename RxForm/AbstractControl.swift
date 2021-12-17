@@ -147,24 +147,24 @@ public class AbstractControl {
     When false, no events are emitted.
     */
     public func updateValueAndValidity(options: (onlySelf: Bool, emitValue: Bool) = (false, true)) {
-        self.updateValue()
-        self.asyncValidationSubscription?.dispose()
+        updateValue()
+        asyncValidationSubscription?.dispose()
         
-        if self.enabled {
-            self.errors = self._runValidators()
-            self.status = self.calculateStatus()
-            if self.status == .valid || self.status == .pending {
-                self._runAsyncValidators(emitEvents: options.emitValue)
+        if enabled {
+            errors = _runValidators()
+            status = calculateStatus()
+            if status == .valid || status == .pending {
+                _runAsyncValidators(emitEvents: options.emitValue)
             }
         }
         
         if options.emitValue {
-            self._valueRelay.accept(self.value)
-            self._statusRelay.accept(self.status)
+            _valueRelay.accept(value)
+            _statusRelay.accept(status)
         }
         
         if !options.onlySelf {
-            self.parent?.updateValueAndValidity(options: options)
+            parent?.updateValueAndValidity(options: options)
         }
     }
     
@@ -224,7 +224,8 @@ public class AbstractControl {
      When false, no events are emitted.
     */
     public func enable(options: (onlySelf: Bool, emitValue: Bool) = (false, true)) {
-        self.status = nil
+        status = nil
+        if !options.onlySelf { parent?.status = nil }
         updateValueAndValidity(options: options)
     }
     
@@ -245,7 +246,7 @@ public class AbstractControl {
      When false, no events are emitted.
     */
     public func disable(options: (onlySelf: Bool, emitValue: Bool) = (false, true)) {
-        self.status = .disabled
+        status = .disabled
         updateValueAndValidity(options: options)
     }
     
@@ -253,7 +254,7 @@ public class AbstractControl {
     /**
     - parameter parent: Sets the parent of the control
     */
-    public func setParent(_ parent: HolderControl) {
+    func setParent(_ parent: HolderControl) {
         self.parent = parent
     }
     
@@ -277,9 +278,9 @@ public class AbstractControl {
     
     private func _runAsyncValidators(emitEvents: Bool) {
         guard !asyncValidators.isEmpty else { return }
-        self.status = .pending
+        status = .pending
         var errors: [String : Any] = [:]
-        let observables = self.asyncValidators.map { [unowned self] in $0(self) }
+        let observables = asyncValidators.map { [unowned self] in $0(self) }
         let completables = observables.map { observable in
             return observable.do(onSuccess: { validationResult in
                 if let unwrappedValidationResult = validationResult {
@@ -289,23 +290,23 @@ public class AbstractControl {
                 }
             }).asCompletable()
         }
-        self.asyncValidationSubscription = Completable.concat(completables).subscribe(onCompleted: { [unowned self] in
+        asyncValidationSubscription = Completable.concat(completables).subscribe(onCompleted: { [unowned self] in
             self._setAsyncErrors(errors, emitValue: emitEvents)
         })
     }
     
     private func _setAsyncErrors(_ errors: [String : Any?], emitValue: Bool) {
         self.errors = errors
-        self.status = nil
-        self._updateControlsErrors(emitValue: emitValue)
+        status = nil
+        _updateControlsErrors(emitValue: emitValue)
     }
     
     private func _updateControlsErrors(emitValue: Bool) {
-        self.status = self.calculateStatus()
+        self.status = calculateStatus()
         if emitValue {
-            self._statusRelay.accept(self.status)
+            _statusRelay.accept(status)
         }
-        self.parent?._updateControlsErrors(emitValue: emitValue)
+        parent?._updateControlsErrors(emitValue: emitValue)
     }
     
 }

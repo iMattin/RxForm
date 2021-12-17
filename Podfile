@@ -7,8 +7,8 @@ target 'RxForm' do
 
   # Pods for RxForm
   
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'RxSwift', '~> 6.2'
+  pod 'RxCocoa', '~> 6.2'
 
   target 'RxFormTests' do
     # Pods for testing

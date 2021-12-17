@@ -61,9 +61,7 @@ public class FormControl: AbstractControl {
     }
     
     override func calculateStatus() -> ControlStatus {
-        if status == .disabled { return .disabled }
         if !errors.isEmpty { return .invalid }
-        if status == .pending { return .pending }
         return .valid
     }
     

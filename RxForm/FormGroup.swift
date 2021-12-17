@@ -7,7 +7,7 @@
 import Foundation
 import RxSwift
 
-public protocol HolderControl: AbstractControl {
+protocol HolderControl: AbstractControl {
     var controls: [String : AbstractControl] { get }
 }
 
@@ -87,7 +87,6 @@ public class FormGroup: AbstractControl, HolderControl {
     }
     
     override func calculateStatus() -> ControlStatus {
-        if status == .disabled { return .disabled }
         if !errors.isEmpty { return .invalid }
         if areAllControlsDisabled() { return .disabled }
         if anyControlHasStatus(.pending) { return .pending }
