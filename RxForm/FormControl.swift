@@ -32,9 +32,13 @@ public class FormControl: AbstractControl {
     */
     public override func setValue(_ value: Any?, options: (onlySelf: Bool, emitValue: Bool) = (false, true)) {
         self.value = value
-        self.updateValueAndValidity(options: options)
+        updateValueAndValidity(options: options)
     }
 
+    public override func reset(options: (onlySelf: Bool, emitValue: Bool) = (false, true)) {
+        self.value = nil
+        updateValueAndValidity(options: options)
+    }
     
     /// Sets a control value accessor to connet UI to the control
     public func setControlValueAccessor(_ accessor: ControlValueAccessor?) {

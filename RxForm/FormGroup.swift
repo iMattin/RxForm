@@ -30,6 +30,11 @@ public class FormGroup: AbstractControl, HolderControl {
         self.updateValueAndValidity(options: options)
     }
     
+    public override func reset(options: (onlySelf: Bool, emitValue: Bool) = (false, true)) {
+        controls.values.forEach { $0.reset(options: (true, options.emitValue)) }
+        updateValueAndValidity(options: options)
+    }
+    
     /**
      Add control as a child of this control
     - parameter name: Name of control

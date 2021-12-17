@@ -51,7 +51,7 @@ public class AbstractControl {
     - returns: True if the control has passed all of its validation tests, false otherwise.
     */
     public var valid: Bool {
-        return self.status == .valid
+        return status == .valid
     }
     
     
@@ -60,7 +60,7 @@ public class AbstractControl {
     - returns: True if this control is in the process of conducting a validation check, false otherwise.
     */
     public var pending: Bool {
-        return self.status == .pending
+        return status == .pending
     }
     
     
@@ -69,7 +69,7 @@ public class AbstractControl {
     - returns: True if the control has any status other than `disabled`, false if the status is `disabled`.
     */
     public var enabled: Bool {
-        return self.status != .disabled
+        return status != .disabled
     }
     
     
@@ -78,7 +78,7 @@ public class AbstractControl {
     - returns: True if the control is disabled, false otherwise.
     */
     public var disabled: Bool {
-        return self.status == .disabled
+        return status == .disabled
     }
     
     
@@ -88,7 +88,7 @@ public class AbstractControl {
     without passing along (`emitEvent = false`) as a function argument.
     */
     public var valueChanges: Driver<Any?> {
-        return self._valueRelay.asDriver(onErrorJustReturn: nil)
+        return _valueRelay.asDriver(onErrorJustReturn: nil)
     }
     
     
@@ -97,7 +97,7 @@ public class AbstractControl {
     recalculates.
     */
     public var statusChanges: Driver<ControlStatus> {
-        return self._statusRelay.asDriver(onErrorJustReturn: .invalid)
+        return _statusRelay.asDriver(onErrorJustReturn: .invalid)
     }
     
     
@@ -113,8 +113,11 @@ public class AbstractControl {
     
     
     /**
-    Sets the synchronous validators that are active on this control.  Calling
+    Sets the synchronous validators that are active on this control. Calling
     this overwrites any existing synchronous validators.
+     
+     - warning: When you add or remove a validator at run time, you must call
+     `updateValueAndValidity()` for the new validation to take effect.
     */
     public func setValidators(_ validators: [Validator]) {
         self.validators = validators
@@ -124,6 +127,9 @@ public class AbstractControl {
     /**
     Sets the asynchronous validators that are active on this control.  Calling
     this overwrites any existing synchronous validators.
+     
+     - warning: When you add or remove a validator at run time, you must call
+     `updateValueAndValidity()` for the new validation to take effect.
     */
     public func setAsycValidators(_ asyncValidators: [AsyncValidator]) {
         self.asyncValidators = asyncValidators
@@ -176,7 +182,7 @@ public class AbstractControl {
     `updateValueAndValidity()` for the new validation to take effect.
     */
     public func clearValidators() {
-        self.validators = []
+        validators = []
     }
     
     
@@ -202,7 +208,7 @@ public class AbstractControl {
     /**
      Resets the value of the control. Abstract method (implemented in sub-classes).
     */
-    public func reset(value: Any?, options: (onlySelf: Bool, emitValue: Bool)) {
+    public func reset(options: (onlySelf: Bool, emitValue: Bool)) {
         fatalError()
     }
     
