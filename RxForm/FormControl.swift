@@ -45,8 +45,8 @@ public class FormControl: AbstractControl {
         _controlValueAccessor = accessor
         accessor?.write(value: value)
         accessor?.setEnabledState(enabled)
-        accessor?.registerOnChange({ (uiValue) in
-            self.setValueFromUI(uiValue)
+        accessor?.registerOnChange({ [weak self] (uiValue) in
+            self?.setValueFromUI(uiValue)
         })
     }
     
