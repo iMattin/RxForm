@@ -2,7 +2,6 @@
 //  UIITextFiled+ControlValueAccessor.swift
 //  RxForm
 //  Created by Matin Abdollahi on 12/23/21.
-//  Copyright © 2021 IEM. All rights reserved.
 //  
 
 import UIKit
